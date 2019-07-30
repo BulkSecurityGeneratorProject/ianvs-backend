@@ -1,0 +1,35 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.toseanalytica.ianvs"
+        },
+        "jhipsterVersion": "5.8.2",
+        "applicationType": "monolith",
+        "baseName": "ianvs",
+        "packageName": "com.toseanalytica.ianvs",
+        "packageFolder": "com/toseanalytica/ianvs",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "postgresql",
+        "prodDatabaseType": "postgresql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "OTk0ZDZjZjk2MzVkYjVlNDZiOTg3Y2RkN2JmZDU3ODc1MDQwZTJmMjdlYWU0NWYzY2Y4YjA4MzM3NTNiNzliNmMwZmEwYWRhZTBiMTA4ZGY0YWYyNjliMjA1MjgxM2FlZmU1YWQzNjhmMjIwMzIzYTBlNjA1NGZiNDAwZGUyMzQ=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": false
+    }
+}
