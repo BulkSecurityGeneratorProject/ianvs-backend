@@ -1,0 +1,50 @@
+{
+    "name": "Company",
+    "fields": [
+        {
+            "fieldName": "company",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "companyCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "pin",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "registrationDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "branch",
+            "otherEntityRelationshipName": "company",
+            "relationshipName": "branchCompany"
+        },
+        {
+            "relationshipName": "companyCategory",
+            "otherEntityName": "companyCategory",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "companyStatus",
+            "otherEntityName": "companyStatus",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190730152213",
+    "entityTableName": "company",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

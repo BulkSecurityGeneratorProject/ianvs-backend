@@ -1,0 +1,68 @@
+{
+    "name": "IncomeCapture",
+    "fields": [
+        {
+            "fieldName": "salesCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "documentDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "customerName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerEmail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerMobile",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "customerAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dateUploaded",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "branch",
+            "otherEntityName": "branch",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "incomeDetails",
+            "otherEntityRelationshipName": "incomeCapture",
+            "relationshipName": "captureParent"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "incomePayments",
+            "otherEntityRelationshipName": "incomeCapture",
+            "relationshipName": "incomePayments"
+        },
+        {
+            "relationshipName": "incomeCategory",
+            "otherEntityName": "incomeCategory",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190730152221",
+    "entityTableName": "income_capture",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

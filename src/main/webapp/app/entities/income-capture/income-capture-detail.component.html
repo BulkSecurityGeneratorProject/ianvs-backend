@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="incomeCapture">
+            <h2><span>Income Capture</span> {{incomeCapture.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Sales Code</span></dt>
+                <dd>
+                    <span>{{incomeCapture.salesCode}}</span>
+                </dd>
+                <dt><span>Document Date</span></dt>
+                <dd>
+                    <span>{{incomeCapture.documentDate}}</span>
+                </dd>
+                <dt><span>Customer Name</span></dt>
+                <dd>
+                    <span>{{incomeCapture.customerName}}</span>
+                </dd>
+                <dt><span>Customer Email</span></dt>
+                <dd>
+                    <span>{{incomeCapture.customerEmail}}</span>
+                </dd>
+                <dt><span>Customer Mobile</span></dt>
+                <dd>
+                    <span>{{incomeCapture.customerMobile}}</span>
+                </dd>
+                <dt><span>Customer Address</span></dt>
+                <dd>
+                    <span>{{incomeCapture.customerAddress}}</span>
+                </dd>
+                <dt><span>Date Uploaded</span></dt>
+                <dd>
+                    <span>{{incomeCapture.dateUploaded}}</span>
+                </dd>
+                <dt><span>Branch</span></dt>
+                <dd>
+                    <div *ngIf="incomeCapture.branch">
+                        <a [routerLink]="['/branch', incomeCapture.branch?.id, 'view']">{{incomeCapture.branch?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Income Category</span></dt>
+                <dd>
+                    <div *ngIf="incomeCapture.incomeCategory">
+                        <a [routerLink]="['/income-category', incomeCapture.incomeCategory?.id, 'view']">{{incomeCapture.incomeCategory?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/income-capture', incomeCapture.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,34 @@
+{
+    "name": "IncomePayments",
+    "fields": [
+        {
+            "fieldName": "amountPaid",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "amountOutstanding",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "outstandingPaymentDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "incomeCapture",
+            "otherEntityName": "incomeCapture",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190730152224",
+    "entityTableName": "income_payments",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

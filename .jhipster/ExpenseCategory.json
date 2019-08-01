@@ -1,0 +1,26 @@
+{
+    "name": "ExpenseCategory",
+    "fields": [
+        {
+            "fieldName": "expenseCategory",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "expenseUpload",
+            "otherEntityRelationshipName": "expenseCategory",
+            "relationshipName": "fileType"
+        }
+    ],
+    "changelogDate": "20190730152220",
+    "entityTableName": "expense_category",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

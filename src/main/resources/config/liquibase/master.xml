@@ -5,6 +5,29 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152210_added_entity_Country.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152211_added_entity_Province.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152212_added_entity_Town.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152213_added_entity_Company.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152214_added_entity_Branch.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152215_added_entity_CompanyCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152216_added_entity_CompanyStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152217_added_entity_BranchStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152218_added_entity_ExpenseUpload.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152219_added_entity_ExpenseStatus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152220_added_entity_ExpenseCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152221_added_entity_IncomeCapture.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152222_added_entity_IncomeCategory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152223_added_entity_IncomeDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152224_added_entity_IncomePayments.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190730152211_added_entity_constraints_Province.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152212_added_entity_constraints_Town.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152213_added_entity_constraints_Company.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152214_added_entity_constraints_Branch.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152218_added_entity_constraints_ExpenseUpload.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152221_added_entity_constraints_IncomeCapture.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152223_added_entity_constraints_IncomeDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190730152224_added_entity_constraints_IncomePayments.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

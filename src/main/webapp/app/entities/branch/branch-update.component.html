@@ -1,0 +1,77 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-branch-heading">Create or edit a Branch</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!branch.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="branch.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_branchName">Branch Name</label>
+                    <input type="text" class="form-control" name="branchName" id="field_branchName"
+                        [(ngModel)]="branch.branchName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                        [(ngModel)]="branch.address" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_street">Street</label>
+                    <input type="text" class="form-control" name="street" id="field_street"
+                        [(ngModel)]="branch.street" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="branch.email" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mobile">Mobile</label>
+                    <input type="text" class="form-control" name="mobile" id="field_mobile"
+                        [(ngModel)]="branch.mobile" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_registrationDate">Registration Date</label>
+                    <div class="d-flex">
+                        <input id="field_registrationDate" type="datetime-local" class="form-control" name="registrationDate" [(ngModel)]="registrationDate" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_town">Town</label>
+                    <select class="form-control" id="field_town" name="town" [(ngModel)]="branch.town" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="townOption.id === branch.town?.id ? branch.town : townOption" *ngFor="let townOption of towns; trackBy: trackTownById">{{townOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_company">Company</label>
+                    <select class="form-control" id="field_company" name="company" [(ngModel)]="branch.company" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="companyOption.id === branch.company?.id ? branch.company : companyOption" *ngFor="let companyOption of companies; trackBy: trackCompanyById">{{companyOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_branchStatus">Branch Status</label>
+                    <select class="form-control" id="field_branchStatus" name="branchStatus" [(ngModel)]="branch.branchStatus" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="branchStatusOption.id === branch.branchStatus?.id ? branch.branchStatus : branchStatusOption" *ngFor="let branchStatusOption of branchstatuses; trackBy: trackBranchStatusById">{{branchStatusOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

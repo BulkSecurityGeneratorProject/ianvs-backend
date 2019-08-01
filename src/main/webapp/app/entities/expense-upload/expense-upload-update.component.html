@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-expense-upload-heading">Create or edit a Expense Upload</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!expenseUpload.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="expenseUpload.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fileName">File Name</label>
+                    <input type="text" class="form-control" name="fileName" id="field_fileName"
+                        [(ngModel)]="expenseUpload.fileName" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_statusDate">Status Date</label>
+                    <div class="d-flex">
+                        <input id="field_statusDate" type="datetime-local" class="form-control" name="statusDate" [(ngModel)]="statusDate" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_photo">Photo</label>
+                    <div>
+                        <div *ngIf="expenseUpload.photo" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(expenseUpload.photoContentType, expenseUpload.photo)">open</a><br>
+                            <span class="pull-left">{{expenseUpload.photoContentType}}, {{byteSize(expenseUpload.photo)}}</span>
+                            <button type="button" (click)="expenseUpload.photo=null;expenseUpload.photoContentType=null;"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_photo" (change)="setFileData($event, expenseUpload, 'photo', false)"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="photo" id="field_photo"
+                        [(ngModel)]="expenseUpload.photo" />
+                    <input type="hidden" class="form-control" name="photoContentType" id="field_photoContentType"
+                        [(ngModel)]="expenseUpload.photoContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_dateCreated">Date Created</label>
+                    <div class="d-flex">
+                        <input id="field_dateCreated" type="datetime-local" class="form-control" name="dateCreated" [(ngModel)]="dateCreated" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_accountingDate">Accounting Date</label>
+                    <div class="d-flex">
+                        <input id="field_accountingDate" type="datetime-local" class="form-control" name="accountingDate" [(ngModel)]="accountingDate" placeholder="YYYY-MM-DD HH:mm"
+                        />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_branch">Branch</label>
+                    <select class="form-control" id="field_branch" name="branch" [(ngModel)]="expenseUpload.branch" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="branchOption.id === expenseUpload.branch?.id ? expenseUpload.branch : branchOption" *ngFor="let branchOption of branches; trackBy: trackBranchById">{{branchOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_expenseStatus">Expense Status</label>
+                    <select class="form-control" id="field_expenseStatus" name="expenseStatus" [(ngModel)]="expenseUpload.expenseStatus" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="expenseStatusOption.id === expenseUpload.expenseStatus?.id ? expenseUpload.expenseStatus : expenseStatusOption" *ngFor="let expenseStatusOption of expensestatuses; trackBy: trackExpenseStatusById">{{expenseStatusOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_expenseCategory">Expense Category</label>
+                    <select class="form-control" id="field_expenseCategory" name="expenseCategory" [(ngModel)]="expenseUpload.expenseCategory" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="expenseCategoryOption.id === expenseUpload.expenseCategory?.id ? expenseUpload.expenseCategory : expenseCategoryOption" *ngFor="let expenseCategoryOption of expensecategories; trackBy: trackExpenseCategoryById">{{expenseCategoryOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

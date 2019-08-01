@@ -1,0 +1,42 @@
+{
+    "name": "IncomeDetails",
+    "fields": [
+        {
+            "fieldName": "itemDescription",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unitPrice",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "totalVat",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "totalPrice",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "incomeCapture",
+            "otherEntityName": "incomeCapture",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190730152223",
+    "entityTableName": "income_details",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

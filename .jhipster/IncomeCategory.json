@@ -1,0 +1,26 @@
+{
+    "name": "IncomeCategory",
+    "fields": [
+        {
+            "fieldName": "categoryName",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "incomeCapture",
+            "otherEntityRelationshipName": "incomeCategory",
+            "relationshipName": "captureCategory"
+        }
+    ],
+    "changelogDate": "20190730152222",
+    "entityTableName": "income_category",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

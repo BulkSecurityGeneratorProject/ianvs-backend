@@ -1,0 +1,26 @@
+{
+    "name": "ExpenseStatus",
+    "fields": [
+        {
+            "fieldName": "expenseStatus",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "expenseUpload",
+            "otherEntityRelationshipName": "expenseStatus",
+            "relationshipName": "expenseStatus"
+        }
+    ],
+    "changelogDate": "20190730152219",
+    "entityTableName": "expense_status",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

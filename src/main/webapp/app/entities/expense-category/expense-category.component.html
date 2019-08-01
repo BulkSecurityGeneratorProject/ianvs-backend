@@ -1,0 +1,54 @@
+<div>
+    <h2 id="page-heading">
+        <span>Expense Categories</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-expense-category" [routerLink]="['/expense-category/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Expense Category
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="expenseCategories">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Expense Category</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let expenseCategory of expenseCategories ;trackBy: trackId">
+                <td><a [routerLink]="['/expense-category', expenseCategory.id, 'view' ]">{{expenseCategory.id}}</a></td>
+                <td>{{expenseCategory.expenseCategory}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/expense-category', expenseCategory.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/expense-category', expenseCategory.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'expense-category', { outlets: { popup: expenseCategory.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

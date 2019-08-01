@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span>Income Payments</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-income-payments" [routerLink]="['/income-payments/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Income Payments
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="incomePayments">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Amount Paid</span></th>
+            <th><span>Amount Outstanding</span></th>
+            <th><span>Outstanding Payment Date</span></th>
+            <th><span>Income Capture</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let incomePayments of incomePayments ;trackBy: trackId">
+                <td><a [routerLink]="['/income-payments', incomePayments.id, 'view' ]">{{incomePayments.id}}</a></td>
+                <td>{{incomePayments.amountPaid}}</td>
+                <td>{{incomePayments.amountOutstanding}}</td>
+                <td>{{incomePayments.outstandingPaymentDate | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="incomePayments.incomeCapture">
+                        <a [routerLink]="['../income-capture', incomePayments.incomeCapture?.id, 'view' ]" >{{incomePayments.incomeCapture?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/income-payments', incomePayments.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/income-payments', incomePayments.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'income-payments', { outlets: { popup: incomePayments.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

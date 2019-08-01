@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="expenseUpload">
+            <h2><span>Expense Upload</span> {{expenseUpload.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>File Name</span></dt>
+                <dd>
+                    <span>{{expenseUpload.fileName}}</span>
+                </dd>
+                <dt><span>Status Date</span></dt>
+                <dd>
+                    <span>{{expenseUpload.statusDate}}</span>
+                </dd>
+                <dt><span>Photo</span></dt>
+                <dd>
+                    <div *ngIf="expenseUpload.photo">
+                        <a (click)="openFile(expenseUpload.photoContentType, expenseUpload.photo)">open</a>
+                        {{expenseUpload.photoContentType}}, {{byteSize(expenseUpload.photo)}}
+                    </div>
+                </dd>
+                <dt><span>Date Created</span></dt>
+                <dd>
+                    <span>{{expenseUpload.dateCreated}}</span>
+                </dd>
+                <dt><span>Accounting Date</span></dt>
+                <dd>
+                    <span>{{expenseUpload.accountingDate}}</span>
+                </dd>
+                <dt><span>Branch</span></dt>
+                <dd>
+                    <div *ngIf="expenseUpload.branch">
+                        <a [routerLink]="['/branch', expenseUpload.branch?.id, 'view']">{{expenseUpload.branch?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Expense Status</span></dt>
+                <dd>
+                    <div *ngIf="expenseUpload.expenseStatus">
+                        <a [routerLink]="['/expense-status', expenseUpload.expenseStatus?.id, 'view']">{{expenseUpload.expenseStatus?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Expense Category</span></dt>
+                <dd>
+                    <div *ngIf="expenseUpload.expenseCategory">
+                        <a [routerLink]="['/expense-category', expenseUpload.expenseCategory?.id, 'view']">{{expenseUpload.expenseCategory?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/expense-upload', expenseUpload.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

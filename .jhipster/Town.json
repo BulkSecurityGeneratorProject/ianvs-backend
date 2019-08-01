@@ -1,0 +1,32 @@
+{
+    "name": "Town",
+    "fields": [
+        {
+            "fieldName": "town",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "province",
+            "otherEntityName": "province",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "branch",
+            "otherEntityRelationshipName": "town",
+            "relationshipName": "branchTown"
+        }
+    ],
+    "changelogDate": "20190730152212",
+    "entityTableName": "town",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,54 @@
+<div>
+    <h2 id="page-heading">
+        <span>Income Categories</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-income-category" [routerLink]="['/income-category/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Income Category
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="incomeCategories">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Category Name</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let incomeCategory of incomeCategories ;trackBy: trackId">
+                <td><a [routerLink]="['/income-category', incomeCategory.id, 'view' ]">{{incomeCategory.id}}</a></td>
+                <td>{{incomeCategory.categoryName}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/income-category', incomeCategory.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/income-category', incomeCategory.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'income-category', { outlets: { popup: incomeCategory.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

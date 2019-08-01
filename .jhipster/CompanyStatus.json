@@ -1,0 +1,26 @@
+{
+    "name": "CompanyStatus",
+    "fields": [
+        {
+            "fieldName": "companyStatus",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "companyStatus",
+            "relationshipName": "companyStatus"
+        }
+    ],
+    "changelogDate": "20190730152216",
+    "entityTableName": "company_status",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,26 @@
+{
+    "name": "BranchStatus",
+    "fields": [
+        {
+            "fieldName": "branchStatus",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "branch",
+            "otherEntityRelationshipName": "branchStatus",
+            "relationshipName": "branchStatus"
+        }
+    ],
+    "changelogDate": "20190730152217",
+    "entityTableName": "branch_status",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

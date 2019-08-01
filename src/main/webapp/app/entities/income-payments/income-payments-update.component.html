@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-income-payments-heading">Create or edit a Income Payments</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!incomePayments.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="incomePayments.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_amountPaid">Amount Paid</label>
+                    <input type="number" class="form-control" name="amountPaid" id="field_amountPaid"
+                        [(ngModel)]="incomePayments.amountPaid" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_amountOutstanding">Amount Outstanding</label>
+                    <input type="number" class="form-control" name="amountOutstanding" id="field_amountOutstanding"
+                        [(ngModel)]="incomePayments.amountOutstanding" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_outstandingPaymentDate">Outstanding Payment Date</label>
+                    <div class="input-group">
+                        <input id="field_outstandingPaymentDate" type="text" class="form-control" name="outstandingPaymentDate" ngbDatepicker  #outstandingPaymentDateDp="ngbDatepicker" [(ngModel)]="incomePayments.outstandingPaymentDate"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="outstandingPaymentDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_incomeCapture">Income Capture</label>
+                    <select class="form-control" id="field_incomeCapture" name="incomeCapture" [(ngModel)]="incomePayments.incomeCapture" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="incomeCaptureOption.id === incomePayments.incomeCapture?.id ? incomePayments.incomeCapture : incomeCaptureOption" *ngFor="let incomeCaptureOption of incomecaptures; trackBy: trackIncomeCaptureById">{{incomeCaptureOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

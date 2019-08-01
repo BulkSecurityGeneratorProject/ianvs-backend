@@ -1,0 +1,26 @@
+{
+    "name": "CompanyCategory",
+    "fields": [
+        {
+            "fieldName": "companyCategory",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "company",
+            "otherEntityRelationshipName": "companyCategory",
+            "relationshipName": "companyCategory"
+        }
+    ],
+    "changelogDate": "20190730152215",
+    "entityTableName": "company_category",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

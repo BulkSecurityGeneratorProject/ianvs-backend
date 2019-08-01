@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="incomePayments">
+            <h2><span>Income Payments</span> {{incomePayments.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Amount Paid</span></dt>
+                <dd>
+                    <span>{{incomePayments.amountPaid}}</span>
+                </dd>
+                <dt><span>Amount Outstanding</span></dt>
+                <dd>
+                    <span>{{incomePayments.amountOutstanding}}</span>
+                </dd>
+                <dt><span>Outstanding Payment Date</span></dt>
+                <dd>
+                    <span>{{incomePayments.outstandingPaymentDate}}</span>
+                </dd>
+                <dt><span>Income Capture</span></dt>
+                <dd>
+                    <div *ngIf="incomePayments.incomeCapture">
+                        <a [routerLink]="['/income-capture', incomePayments.incomeCapture?.id, 'view']">{{incomePayments.incomeCapture?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/income-payments', incomePayments.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

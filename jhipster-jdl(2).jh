@@ -1,0 +1,139 @@
+entity Country {
+   country String,
+   code String
+}
+
+entity Province {
+   province String
+}
+
+entity Town {
+  town String
+}
+
+entity Company {
+  company String,
+  companyCode String,
+  pin String,
+  registrationDate Instant
+}
+
+entity Branch {
+	branchName String,
+    address String,
+    street String,
+    email String,
+    mobile String,
+    registrationDate Instant
+}
+
+entity CompanyCategory {
+	companyCategory String
+}
+
+entity CompanyStatus {
+	companyStatus String
+}
+
+entity BranchStatus {
+	branchStatus String
+}
+
+relationship OneToMany {
+	CompanyCategory{companyCategory} to Company
+}
+
+relationship OneToMany {
+	Country{countryCounty} to Province
+}
+
+relationship OneToMany {
+	Province{provinceTown} to Town
+}
+
+relationship OneToMany {
+	CompanyStatus{companyStatus} to Company
+}
+
+relationship OneToMany {
+	BranchStatus{branchStatus} to Branch
+}
+
+relationship OneToMany {
+	Town{branchTown} to Branch
+}
+
+relationship OneToMany {
+	Company{branchCompany} to Branch
+}
+
+entity ExpenseUpload {
+	fileName String
+    statusDate Instant,
+	photo Blob,
+	dateCreated Instant,
+	accountingDate Instant
+}
+
+entity ExpenseStatus {
+	expenseStatus String
+}
+
+entity ExpenseCategory {
+	expenseCategory String
+}
+
+relationship OneToMany {
+	ExpenseStatus{expenseStatus} to ExpenseUpload
+}
+relationship OneToMany {
+	ExpenseCategory{fileType} to ExpenseUpload
+}
+
+relationship OneToMany {
+	Branch{uploadBranch} to ExpenseUpload
+}
+
+entity IncomeCapture {
+	salesCode String,
+	documentDate Instant,
+	customerName String,
+	customerEmail String,
+	customerMobile String,
+    customerAddress String,
+	dateUploaded Instant
+}
+
+entity IncomeCategory {
+	categoryName String
+}
+
+relationship OneToMany {
+	IncomeCategory{captureCategory} to IncomeCapture
+}
+
+relationship OneToMany {
+	Branch{captureBranch} to IncomeCapture
+}
+
+entity IncomeDetails {
+	itemDescription String,
+	unitPrice Float,
+	quantity Float,
+	totalVat Float,
+	totalPrice Float
+}
+
+relationship OneToMany {
+	IncomeCapture{captureParent} to IncomeDetails
+}
+
+entity IncomePayments {
+	amountPaid Float,
+	amountOutstanding Float,
+	outstandingPaymentDate LocalDate
+}
+
+relationship OneToMany {
+	IncomeCapture{incomePayments} to IncomePayments
+}

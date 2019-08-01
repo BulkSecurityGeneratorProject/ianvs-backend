@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity IncomePayments.
+    -->
+    <changeSet id="20190730152224-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="income_capture_id"
+                                 baseTableName="income_payments"
+                                 constraintName="fk_income_payments_income_capture_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="income_capture"/>
+
+    </changeSet>
+</databaseChangeLog>

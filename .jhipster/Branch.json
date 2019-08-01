@@ -1,0 +1,70 @@
+{
+    "name": "Branch",
+    "fields": [
+        {
+            "fieldName": "branchName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "street",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mobile",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "registrationDate",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "town",
+            "otherEntityName": "town",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "company",
+            "otherEntityName": "company",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "expenseUpload",
+            "otherEntityRelationshipName": "branch",
+            "relationshipName": "uploadBranch"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "incomeCapture",
+            "otherEntityRelationshipName": "branch",
+            "relationshipName": "captureBranch"
+        },
+        {
+            "relationshipName": "branchStatus",
+            "otherEntityName": "branchStatus",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190730152214",
+    "entityTableName": "branch",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

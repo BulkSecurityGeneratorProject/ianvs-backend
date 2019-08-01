@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="branch">
+            <h2><span>Branch</span> {{branch.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Branch Name</span></dt>
+                <dd>
+                    <span>{{branch.branchName}}</span>
+                </dd>
+                <dt><span>Address</span></dt>
+                <dd>
+                    <span>{{branch.address}}</span>
+                </dd>
+                <dt><span>Street</span></dt>
+                <dd>
+                    <span>{{branch.street}}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{branch.email}}</span>
+                </dd>
+                <dt><span>Mobile</span></dt>
+                <dd>
+                    <span>{{branch.mobile}}</span>
+                </dd>
+                <dt><span>Registration Date</span></dt>
+                <dd>
+                    <span>{{branch.registrationDate}}</span>
+                </dd>
+                <dt><span>Town</span></dt>
+                <dd>
+                    <div *ngIf="branch.town">
+                        <a [routerLink]="['/town', branch.town?.id, 'view']">{{branch.town?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Company</span></dt>
+                <dd>
+                    <div *ngIf="branch.company">
+                        <a [routerLink]="['/company', branch.company?.id, 'view']">{{branch.company?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Branch Status</span></dt>
+                <dd>
+                    <div *ngIf="branch.branchStatus">
+                        <a [routerLink]="['/branch-status', branch.branchStatus?.id, 'view']">{{branch.branchStatus?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/branch', branch.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -38,6 +38,35 @@ public class CacheConfiguration {
             cm.createCache(com.toseanalytica.ianvs.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.toseanalytica.ianvs.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.toseanalytica.ianvs.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.Country.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.Country.class.getName() + ".countryCounties", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.Province.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.Province.class.getName() + ".provinceTowns", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.Town.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.Town.class.getName() + ".branchTowns", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.Company.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.Company.class.getName() + ".branchCompanies", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.Branch.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.Branch.class.getName() + ".uploadBranches", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.Branch.class.getName() + ".captureBranches", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.CompanyCategory.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.CompanyCategory.class.getName() + ".companyCategories", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.CompanyStatus.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.CompanyStatus.class.getName() + ".companyStatuses", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.BranchStatus.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.BranchStatus.class.getName() + ".branchStatuses", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.ExpenseUpload.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.ExpenseStatus.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.ExpenseStatus.class.getName() + ".expenseStatuses", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.ExpenseCategory.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.ExpenseCategory.class.getName() + ".fileTypes", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.IncomeCapture.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.IncomeCapture.class.getName() + ".captureParents", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.IncomeCapture.class.getName() + ".incomePayments", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.IncomeCategory.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.IncomeCategory.class.getName() + ".captureCategories", jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.IncomeDetails.class.getName(), jcacheConfiguration);
+            cm.createCache(com.toseanalytica.ianvs.domain.IncomePayments.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
